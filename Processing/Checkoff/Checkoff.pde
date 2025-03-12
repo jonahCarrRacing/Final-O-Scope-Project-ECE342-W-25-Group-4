@@ -1,7 +1,5 @@
 import processing.serial.*;
 
-//todo, add graph and user input labels above bottons!!
-
 Serial myPort;                 //creates local serial object from serial library
 
 int xTick = 100;
@@ -14,7 +12,7 @@ void setup() {
   
   fullScreen();                            // set display to be completely fullscreen
   background(100);                            // set background color
-  rect(35, 200, 1451, 700);                //box for signal
+  rect(30, 200, 1451, 700);                //box for signal
   
   line(80, 850, 1400, 850);                    //horizontal axis
   
@@ -45,7 +43,7 @@ int[] data = new int[1300];
 int[] data2 = new int[1300];
 
 //voltage axis data
-float maxVolt = 3.3;
+float maxVolt = 13.5;
 float voltLabel = -3.3;
 float inc = 0;
 
@@ -151,9 +149,12 @@ void GraphVoltage() {                  //function to collect, and print samples 
   noStroke();
   rect(101, 240, 1300, 609);                  // all rect() here cover numbers so
   rect(80, 860, 1400, 30);                    // that they don't write on top of other numbers
-  rect(38, 240, 57, 640);                    //cover volt scale
+  rect(32, 240, 62, 640);                    //cover volt scale
   stroke(0);
   fill(0);
+  
+  line(200, 418, 800, 418);
+  line(200, 672, 800, 672);
   
   for(int i = 0; i < 1300; i++) {                        // collect 1300 samples
     
@@ -175,9 +176,9 @@ void GraphVoltage() {                  //function to collect, and print samples 
   
   yTick = 850;
   inc = maxVolt / (5 * encoder1);
-  voltLabel = -3.3 / encoder1;
+  voltLabel = -13.5 / encoder1;
   for(int k = 0; k < 10; k++) {                  //LOOP to print out voltage at each tick mark
-    text(voltLabel, 40, yTick);
+    text(voltLabel, 33, yTick);
     voltLabel = voltLabel + inc;
     yTick = yTick - 61;
   }

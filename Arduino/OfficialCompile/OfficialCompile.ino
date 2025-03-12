@@ -3,12 +3,6 @@
 #define ENCODER_DO_NOT_USE_INTERRUPTS
 #include <Encoder.h>
 
-
-//Notes: What if i'm triggering on wrong pin? Connect 39 or 25 to check
-//input disable all the other analog pins
-//create a whole new project only testing what voltage the teensy is triggering at, and then the first value it will print.
-//Maybe check to make sure that serialAvailable && send array are working...?
-
 const int pin1 = 25;    //ADC 0
 const int pin2 = 39;    //ADC 1
 
